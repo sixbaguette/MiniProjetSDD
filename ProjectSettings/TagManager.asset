@@ -6,6 +6,18 @@ TagManager:
   tags:
   - Plot
   - Crops
+  - Suppression
+  - Vente
+  - Inventaire
+  - carotte
+  - salade
+  - tomate
+  - myrtille
+  - framboise
+  - banane
+  - pomme
+  - champignon
+  - pasteque
   layers:
   - Default
   - TransparentFX

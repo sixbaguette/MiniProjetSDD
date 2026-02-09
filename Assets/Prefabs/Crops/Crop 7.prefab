@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2901484956676681263}
   - component: {fileID: 1850617702459900679}
+  - component: {fileID: -7329793815058553925}
   m_Layer: 6
   m_Name: Crop 7
-  m_TagString: Crops
+  m_TagString: pomme
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,3 +88,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-7329793815058553925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7556571904248670003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819e153f206a64941b191cea7247b486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
