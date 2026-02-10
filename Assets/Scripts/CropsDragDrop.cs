@@ -5,6 +5,7 @@ public class CropsDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     public GameObject cropPrefabs;
     public CropsData cropsData;
+    public MutationSystem mutation;
 
     private GameObject objet;
 
@@ -72,6 +73,9 @@ public class CropsDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     crop.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     crop.transform.parent = hit.collider.transform.Find("PointCentral");
                     hit.collider.GetComponent<PlotState>().containCrops = true;
+                    hit.collider.transform.GetChild(1).GetChild(0).GetComponent<CropsGrowSystem>().isGrowing = true;
+                    hit.collider.transform.GetChild(1).GetChild(0).GetComponent<MutationSystem>().plantee = true;
+                    hit.collider.transform.GetChild(1).GetChild(0).GetComponent<MutationSystem>().IfPlantee();
                 }
                 else
                 {

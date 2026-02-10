@@ -7,13 +7,13 @@ public class MoneySystem : MonoBehaviour
     public static MoneySystem Instance;
 
     public TextMeshProUGUI moneyText;
-    private int money = 1500;
+    private int money = 100000000;
 
     public Dictionary<string, ProduitData> dicoProduit = new Dictionary<string, ProduitData>();
 
     private void Start()
     {
-        dicoProduit.Add("carotte", new ProduitData(500, 750, 30));
+        dicoProduit.Add("carotte", new ProduitData(500, 750, 5));
         dicoProduit.Add("salade", new ProduitData(3000, 4500, 60));
         dicoProduit.Add("tomate", new ProduitData(8500, 12000, 90));
         dicoProduit.Add("myrtille", new ProduitData(15000, 22000, 120));

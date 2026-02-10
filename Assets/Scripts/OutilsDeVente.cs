@@ -49,11 +49,23 @@ public class OutilsDeVente : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 {
                     Transform parent = hit.collider.transform;
 
-                    MoneySystem.Instance.Vendre(hit.collider.transform.GetChild(1).GetChild(0).tag);
+                    if (!hit.collider.transform.GetChild(1).GetChild(0).GetComponent<CropsGrowSystem>().isGrowing)
+                    {
+                        MoneySystem.Instance.Vendre(hit.collider.transform.GetChild(1).GetChild(0).tag);
 
-                    Destroy(parent.GetChild(1).GetChild(0).gameObject);
-                    hit.collider.GetComponent<PlotState>().containCrops = false;
-                    // prix de vente
+                        if (hit.collider.transform.GetChild(1).GetChild(0).GetComponent<MutationSystem>().isMutated)
+                        {
+                            MoneySystem.Instance.Vendre(hit.collider.transform.GetChild(1).GetChild(0).tag);
+                        }
+
+                        Destroy(parent.GetChild(1).GetChild(0).gameObject);
+                        hit.collider.GetComponent<PlotState>().containCrops = false;
+                    }
+                    else
+                    {
+                        Debug.Log("pas encore prêt pour être vendu");
+                    }
+
                     Destroy(objet);
                 }
                 else
