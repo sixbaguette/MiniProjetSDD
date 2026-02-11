@@ -7,9 +7,15 @@ public class MutationSystem : MonoBehaviour
 
     public bool isMutated = false;
 
+    public bool asMoonMutation = false;
+
+    public bool isCharged = false;
+    public int chargedAmount = 0;
+
     public bool plantee = false;
 
-    public ParticleSystem particleSystem;
+    public ParticleSystem particleSystemMutation;
+    public ParticleSystem particleSystemMoonMutation;
 
     public void IfPlantee()
     {
@@ -29,7 +35,31 @@ public class MutationSystem : MonoBehaviour
         {
             isMutated = true;
 
-            particleSystem.Play();
+            //particleSystemMutation.Play();
+        }
+    }
+
+    public void MutationMoon()
+    {
+        int random = Random.Range(0, 4);
+
+        if (random == 0)
+        {
+            asMoonMutation = true;
+
+            //particleSystemMoonMutation.Play();
+        }
+    }
+
+    public void ThunderCharge()
+    {
+        int random = Random.Range(0, 26);
+
+        if (random == 0)
+        {
+            isCharged = true;
+
+            chargedAmount++;
         }
     }
 }

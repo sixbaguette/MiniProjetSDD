@@ -9,6 +9,8 @@ public class MoneySystem : MonoBehaviour
     public TextMeshProUGUI moneyText;
     private int money = 100000000;
 
+    private int prixDeVenteProduit;
+
     public Dictionary<string, ProduitData> dicoProduit = new Dictionary<string, ProduitData>();
 
     private void Start()
@@ -60,7 +62,7 @@ public class MoneySystem : MonoBehaviour
 
     public void Vendre(string produit)
     {
-        int prixDeVenteProduit = dicoProduit[produit].PrixVente;
+        prixDeVenteProduit = dicoProduit[produit].PrixVente;
 
         money += prixDeVenteProduit;
 
@@ -72,6 +74,20 @@ public class MoneySystem : MonoBehaviour
         int rendArgent = dicoProduit[produit].PrixAchat;
 
         money += rendArgent;
+
+        moneyText.text = money.ToString();
+    }
+
+    public void MultiplicateurVente()
+    {
+        money += prixDeVenteProduit * 2;
+
+        moneyText.text = money.ToString();
+    }
+
+    public void VenteCharged(int chargeAmount)
+    {
+        money += prixDeVenteProduit * chargeAmount;
 
         moneyText.text = money.ToString();
     }

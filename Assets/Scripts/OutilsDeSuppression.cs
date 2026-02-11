@@ -7,8 +7,6 @@ public class OutilsDeSuppression : MonoBehaviour, IBeginDragHandler, IDragHandle
 
     public GameObject outils;
 
-    private bool outilsSuppression = false;
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         Ray ray = Camera.main.ScreenPointToRay(eventData.position);

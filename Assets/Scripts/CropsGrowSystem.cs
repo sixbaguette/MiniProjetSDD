@@ -25,6 +25,15 @@ public class CropsGrowSystem : MonoBehaviour
 
         float t = Mathf.Clamp01(elapsedTime / growTime);
 
+        if (GameObject.Find("WorldEventManager").GetComponent<WorldEventManager>().rainbool)
+        {
+            t = Mathf.Clamp01((elapsedTime / growTime) * 2);
+        }
+        else
+        {
+            t = Mathf.Clamp01(elapsedTime / growTime);
+        }
+
         transform.localScale = Vector3.Lerp(startScale, endScale, t);
 
         if (t >= 1f)

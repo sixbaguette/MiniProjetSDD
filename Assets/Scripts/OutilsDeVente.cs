@@ -7,8 +7,6 @@ public class OutilsDeVente : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public GameObject outils;
 
-    private bool outilsVente = false;
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         Ray ray = Camera.main.ScreenPointToRay(eventData.position);
@@ -55,7 +53,17 @@ public class OutilsDeVente : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
                         if (hit.collider.transform.GetChild(1).GetChild(0).GetComponent<MutationSystem>().isMutated)
                         {
-                            MoneySystem.Instance.Vendre(hit.collider.transform.GetChild(1).GetChild(0).tag);
+                            MoneySystem.Instance.MultiplicateurVente();
+                        }
+
+                        if (hit.collider.transform.GetChild(1).GetChild(0).GetComponent<MutationSystem>().asMoonMutation)
+                        {
+                            MoneySystem.Instance.MultiplicateurVente();
+                        }
+
+                        if (hit.collider.transform.GetChild(1).GetChild(0).GetComponent<MutationSystem>().isCharged)
+                        {
+                            GameObject.Find("MoneySystem").GetComponent<MoneySystem>().VenteCharged(hit.collider.transform.GetChild(1).GetChild(0).GetComponent<MutationSystem>().chargedAmount);
                         }
 
                         Destroy(parent.GetChild(1).GetChild(0).gameObject);

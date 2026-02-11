@@ -15,7 +15,6 @@ public class CropsDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         Ray ray = Camera.main.ScreenPointToRay(eventData.position);
         Plane plane = new Plane(Vector3.forward, Vector3.zero);
-        RaycastHit hit;
 
         Debug.Log("est ce que je peut acheté " + gameObject.tag);
 
