@@ -18,6 +18,7 @@ TagManager:
   - pomme
   - champignon
   - pasteque
+  - InvSlot
   layers:
   - Default
   - TransparentFX

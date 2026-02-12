@@ -87,6 +87,7 @@ public class CropsDragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 isDragging = false;
             }
         }
+        MoneySystem.Instance.RendArgent(gameObject.tag);
         Destroy(objet);
     }
 
