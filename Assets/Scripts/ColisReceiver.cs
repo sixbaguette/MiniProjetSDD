@@ -7,7 +7,7 @@ public class ColisReceiver : MonoBehaviour
     public Transform content;
     public GameObject prefabRequest;
 
-    public GameObject colisInstancier;
+    public RequestReader transcripter;
 
     private int index = 0;
 
@@ -22,7 +22,11 @@ public class ColisReceiver : MonoBehaviour
         {
             Colis colis = NootColisAPI.PopColis("Louka");
 
-            colisInstancier = Instantiate(prefabRequest, content);
+            GameObject colisInstancier = Instantiate(prefabRequest, content);
+
+            ColisData data = colisInstancier.GetComponent<ColisData>();
+            data.contenu = colis.contenu;
+            data.Init(transcripter);
 
             TextMeshProUGUI text = colisInstancier.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
 
@@ -30,7 +34,7 @@ public class ColisReceiver : MonoBehaviour
 
             index++;
 
-            Debug.Log("J'ai reçu : " + colis.contenu);
+            Debug.Log("J'ai reçu ! : " + colis.contenu);
         }
     }
 }

@@ -20,7 +20,6 @@ public class OutilsDeStockage : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     private void Start()
     {
         dicoNombre = new Dictionary<TextMeshProUGUI, int>();
-
     }
 
     public void OnBeginDrag(PointerEventData eventData)
