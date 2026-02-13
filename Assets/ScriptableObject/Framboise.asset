@@ -16,5 +16,5 @@ MonoBehaviour:
   description: c'est une Framboise
   buyPrice: 50000
   sellPrice: 75000
-  growTime: 150
+  growTime: 1
   mutationChance: 0.06

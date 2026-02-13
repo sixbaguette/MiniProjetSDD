@@ -15,11 +15,31 @@ public class RequestReader : MonoBehaviour
     public TextMeshProUGUI mainText;
     public List<ItemStock> itemStocks;
 
-    private Dictionary<string, ItemStock> stockDictionary;
+    // <-- stock réel
+    public Dictionary<string, int> stockQuantities;
+    public Dictionary<string, ItemStock> stockDictionary;
 
     private GameObject source;
-
     private ColisData currentSelected;
+
+    private void Awake()
+    {
+        stockDictionary = new Dictionary<string, ItemStock>();
+        stockQuantities = new Dictionary<string, int>();
+
+        foreach (var item in itemStocks)
+        {
+            stockDictionary.Add(item.itemName, item);
+            // Parse le texte initial pour le stock réel
+            string[] split = item.stockText.text.Split(':');
+            int qty = 0;
+            if (split.Length == 2)
+                int.TryParse(split[1].Trim(), out qty);
+
+            stockQuantities.Add(item.itemName, qty);
+            UpdateStockUI(item.itemName);
+        }
+    }
 
     public void ShowColis(ColisData data, GameObject source)
     {
@@ -35,55 +55,61 @@ public class RequestReader : MonoBehaviour
         this.source = source;
     }
 
-    private void Awake()
-    {
-        stockDictionary = new Dictionary<string, ItemStock>();
-        foreach (var item in itemStocks)
-        {
-            stockDictionary.Add(item.itemName, item);
-        }
-    }
-
     public void SendRequest()
     {
-        if (string.IsNullOrEmpty(mainText.text))
-            return;
+        if (string.IsNullOrEmpty(mainText.text)) return;
 
         string[] split = mainText.text.Split('_');
-        if (split.Length != 2)
-            return;
+        if (split.Length != 2) return;
 
         string itemName = split[0];
-        int requestedAmount;
-        if (!int.TryParse(split[1], out requestedAmount))
-            return;
+        if (!int.TryParse(split[1], out int requestedAmount)) return;
 
-        if (!stockDictionary.ContainsKey(itemName))
-            return;
+        if (!stockQuantities.ContainsKey(itemName)) return;
 
-        ItemStock stockItem = stockDictionary[itemName];
-
-        string[] stockSplit = stockItem.stockText.text.Split(':');
-        if (stockSplit.Length != 2)
-            return;
-
-        int currentStock;
-        if (!int.TryParse(stockSplit[1].Trim(), out currentStock))
-            return;
-
-        if (currentStock >= requestedAmount)
+        if (stockQuantities[itemName] >= requestedAmount)
         {
-            currentStock -= requestedAmount;
-            stockItem.stockText.text = itemName + " : " + currentStock;
+            stockQuantities[itemName] -= requestedAmount;
+            UpdateStockUI(itemName);
+
             Debug.Log($"Demande envoyée : {itemName} - {requestedAmount}");
 
-            Destroy(source);
-            this.source = null;
+            GameObject.Find("SendItemToRequest").GetComponent<SendItemToRequest>().Send(source);
+
+            if (source != null) Destroy(source);
+            source = null;
             mainText.text = "";
+            currentSelected = null;
+
         }
         else
         {
             Debug.Log($"Pas assez de {itemName} en stock !");
         }
+    }
+
+    // Mise à jour simple du texte UI
+    public void UpdateStockUI(string itemName)
+    {
+        if (stockDictionary.ContainsKey(itemName))
+        {
+            stockDictionary[itemName].stockText.text = $"{itemName} : {stockQuantities[itemName]}";
+        }
+    }
+
+    // Fonction pour ajouter un item depuis OutilsDeStockage
+    public void AddItem(string itemName, int amount = 1)
+    {
+        if (!stockQuantities.ContainsKey(itemName))
+        {
+            stockQuantities[itemName] = amount;
+            Debug.LogWarning($"Nouvel item ajouté : {itemName} ({amount})");
+        }
+        else
+        {
+            stockQuantities[itemName] += amount;
+        }
+
+        UpdateStockUI(itemName);
     }
 }

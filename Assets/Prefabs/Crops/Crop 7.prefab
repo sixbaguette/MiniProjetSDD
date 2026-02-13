@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6052396780993554699}
   m_Layer: 6
   m_Name: Crop 7
-  m_TagString: pomme
+  m_TagString: Pomme
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,8 +118,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cropsData: {fileID: 11400000, guid: 5b36abc88aada904ca0ed9096f95e57e, type: 2}
   isMutated: 0
+  asMoonMutation: 0
+  isCharged: 0
+  chargedAmount: 0
   plantee: 0
-  particleSystem: {fileID: -6052396780993554699}
+  particleSystemMutation: {fileID: 0}
+  particleSystemMoonMutation: {fileID: 0}
 --- !u!199 &4632105058835127336
 ParticleSystemRenderer:
   serializedVersion: 6

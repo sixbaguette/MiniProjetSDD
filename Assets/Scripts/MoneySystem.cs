@@ -7,7 +7,7 @@ public class MoneySystem : MonoBehaviour
     public static MoneySystem Instance;
 
     public TextMeshProUGUI moneyText;
-    private int money = 100000000;
+    private int money = 50000;
 
     private int prixDeVenteProduit;
 
@@ -15,15 +15,15 @@ public class MoneySystem : MonoBehaviour
 
     private void Start()
     {
-        dicoProduit.Add("carotte", new ProduitData(500, 750, 5));
-        dicoProduit.Add("salade", new ProduitData(3000, 4500, 60));
-        dicoProduit.Add("tomate", new ProduitData(8500, 12000, 90));
-        dicoProduit.Add("myrtille", new ProduitData(15000, 22000, 120));
-        dicoProduit.Add("framboise", new ProduitData(50000, 75000, 150));
-        dicoProduit.Add("banane", new ProduitData(85000, 125000, 210));
-        dicoProduit.Add("pomme", new ProduitData(150000, 200000, 250));
-        dicoProduit.Add("champignon", new ProduitData(350000, 475000, 300));
-        dicoProduit.Add("pasteque", new ProduitData(1000000, 10000000, 360));
+        dicoProduit.Add("Carotte", new ProduitData(500, 750, 1));
+        dicoProduit.Add("Salade", new ProduitData(3000, 4500, 1));
+        dicoProduit.Add("Tomate", new ProduitData(8500, 12000, 1));
+        dicoProduit.Add("Steack", new ProduitData(15000, 22000, 1));
+        dicoProduit.Add("Framboise", new ProduitData(50000, 75000, 1));
+        dicoProduit.Add("Pain", new ProduitData(85000, 125000, 1));
+        dicoProduit.Add("Pomme", new ProduitData(150000, 200000, 1));
+        dicoProduit.Add("Champi", new ProduitData(350000, 475000, 1));
+        dicoProduit.Add("Pasteque", new ProduitData(1000000, 10000000, 1));
 
         moneyText.text = money.ToString();
 

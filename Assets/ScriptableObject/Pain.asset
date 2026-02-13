@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c0644476469519439ba320a6fc7e010, type: 3}
-  m_Name: Banane
+  m_Name: Pain
   m_EditorClassIdentifier: 
-  cropName: Banane
-  description: c'est une Banane
+  cropName: Pain
+  description: c'est du Pain
   buyPrice: 85000
   sellPrice: 125000
-  growTime: 210
+  growTime: 1
   mutationChance: 0.03

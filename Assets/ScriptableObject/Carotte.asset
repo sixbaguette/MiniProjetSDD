@@ -16,5 +16,5 @@ MonoBehaviour:
   description: c'est une carotte
   buyPrice: 500
   sellPrice: 750
-  growTime: 10
+  growTime: 1
   mutationChance: 0.2

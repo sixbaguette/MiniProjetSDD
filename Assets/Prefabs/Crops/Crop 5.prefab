@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5915559083575307397}
   m_Layer: 6
   m_Name: Crop 5
-  m_TagString: framboise
+  m_TagString: Framboise
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,8 +118,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cropsData: {fileID: 11400000, guid: 19bf9b88b8482b245b12f7bc8626be6b, type: 2}
   isMutated: 0
+  asMoonMutation: 0
+  isCharged: 0
+  chargedAmount: 0
   plantee: 0
-  particleSystem: {fileID: 5915559083575307397}
+  particleSystemMutation: {fileID: 0}
+  particleSystemMoonMutation: {fileID: 0}
 --- !u!199 &4778504239891242063
 ParticleSystemRenderer:
   serializedVersion: 6

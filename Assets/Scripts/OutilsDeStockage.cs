@@ -17,6 +17,8 @@ public class OutilsDeStockage : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     private Dictionary<TextMeshProUGUI, int> dicoNombre;
 
+    public RequestReader reader;
+
     private void Start()
     {
         dicoNombre = new Dictionary<TextMeshProUGUI, int>();
@@ -70,6 +72,7 @@ public class OutilsDeStockage : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                     {
                         dicoNombre[invText] += 1;
                         invText.text = $"{plante.tag} : " + (dicoNombre[invText]);
+                        reader.AddItem(plante.tag, 1);
                         Destroy(plante);
                         hit.collider.GetComponent<PlotState>().containCrops = false;
                     }

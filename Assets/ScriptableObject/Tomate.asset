@@ -16,5 +16,5 @@ MonoBehaviour:
   description: c'est une Tomate
   buyPrice: 8500
   sellPrice: 12000
-  growTime: 60
+  growTime: 1
   mutationChance: 0.12

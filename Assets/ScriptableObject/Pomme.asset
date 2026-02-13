@@ -16,5 +16,5 @@ MonoBehaviour:
   description: c'est une Pomme
   buyPrice: 150000
   sellPrice: 200000
-  growTime: 300
+  growTime: 1
   mutationChance: 0.025

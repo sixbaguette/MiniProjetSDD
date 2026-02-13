@@ -16,5 +16,5 @@ MonoBehaviour:
   description: "c'est une Past\xE8que"
   buyPrice: 1000000
   sellPrice: 10000000
-  growTime: 480
+  growTime: 1
   mutationChance: 0.005

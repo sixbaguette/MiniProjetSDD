@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -67573471133865998}
   m_Layer: 6
   m_Name: Crop 8
-  m_TagString: champignon
+  m_TagString: Champi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,8 +118,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cropsData: {fileID: 11400000, guid: aece80180a3a131459944d3a39c35b40, type: 2}
   isMutated: 0
+  asMoonMutation: 0
+  isCharged: 0
+  chargedAmount: 0
   plantee: 0
-  particleSystem: {fileID: -67573471133865998}
+  particleSystemMutation: {fileID: 0}
+  particleSystemMoonMutation: {fileID: 0}
 --- !u!199 &7889171099314268158
 ParticleSystemRenderer:
   serializedVersion: 6

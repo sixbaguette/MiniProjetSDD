@@ -16,5 +16,5 @@ MonoBehaviour:
   description: c'est une Salade
   buyPrice: 3000
   sellPrice: 4500
-  growTime: 30
+  growTime: 1
   mutationChance: 0.15

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5768617847528270125}
   m_Layer: 6
   m_Name: Crop 4
-  m_TagString: myrtille
+  m_TagString: Steack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,8 +118,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cropsData: {fileID: 11400000, guid: 5f1ef5a9021d35140be0dae2309123ba, type: 2}
   isMutated: 0
+  asMoonMutation: 0
+  isCharged: 0
+  chargedAmount: 0
   plantee: 0
-  particleSystem: {fileID: 5768617847528270125}
+  particleSystemMutation: {fileID: 0}
+  particleSystemMoonMutation: {fileID: 0}
 --- !u!199 &-4779642174159862965
 ParticleSystemRenderer:
   serializedVersion: 6

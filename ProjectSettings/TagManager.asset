@@ -19,6 +19,19 @@ TagManager:
   - champignon
   - pasteque
   - InvSlot
+  - Carotte
+  - Champignon
+  - Tomate
+  - Banane
+  - Myrtille
+  - Salade
+  - Framboise
+  - Pomme
+  - Pasteque
+  - Steak
+  - Pain
+  - Steack
+  - Champi
   layers:
   - Default
   - TransparentFX
